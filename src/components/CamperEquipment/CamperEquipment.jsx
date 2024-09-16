@@ -62,13 +62,13 @@ const CamperEquipment = ({ camper }) => {
           <span>TV</span>
         </div>
       )}
-      {camper.kitchen && (
+      {camper.radio && (
         <div className={css.feature}>
           <span
-            className={`icon icon-cup-hot ${css.featureIcon}`}
+            className={`icon icon-radio ${css.featureIcon}`}
             aria-hidden="true"
           ></span>
-          <span>Kitchen</span>
+          <span>Radio</span>
         </div>
       )}
     </div>

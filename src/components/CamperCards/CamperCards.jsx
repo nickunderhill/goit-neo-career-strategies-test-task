@@ -11,12 +11,12 @@ const CamperCards = () => {
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentPageCampers = campers.slice(0, endIndex);
+  const visibleCampers = campers.slice(0, endIndex);
 
   return (
     <div className={css.campersContainer}>
       <ul className={css.campersList}>
-        {currentPageCampers.map(camper => (
+        {visibleCampers.map(camper => (
           <CamperCard key={camper.id} camper={camper} />
         ))}
       </ul>

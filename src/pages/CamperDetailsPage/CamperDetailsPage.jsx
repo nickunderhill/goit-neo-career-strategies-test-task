@@ -4,6 +4,7 @@ import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchDetails } from '../../api-trucks';
 import BookingForm from '../../components/BookingForm/BookingForm';
 import RatingLocationInfo from '../../components/RatingLocationInfo/RatingLocationInfo';
+import Loader from '../../components/Loader/Loader';
 
 const CamperDetailsPage = () => {
   const { id } = useParams();
@@ -23,7 +24,7 @@ const CamperDetailsPage = () => {
   }, [id]);
 
   if (!camper) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (

@@ -4,7 +4,7 @@ const filterSlice = createSlice({
     name: 'filter',
     initialState: {
         selectedEquipment: {},
-        selectedType: [],
+        selectedType: null,
         location: null,
     },
     reducers: {

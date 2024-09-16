@@ -25,7 +25,7 @@ const CatalogFilter = () => {
   // Local state to hold temporary filter values
   const [localEquipment, setLocalEquipment] = useState(equipment);
   const [localLocation, setLocalLocation] = useState(location);
-  const [localTypes, setLocalTypes] = useState([...type]);
+  const [localType, setLocalType] = useState(type);
 
   const handleEquipmentClick = (key, value) => {
     setLocalEquipment(prev => {
@@ -40,11 +40,7 @@ const CatalogFilter = () => {
   };
 
   const handleTypeClick = value => {
-    setLocalTypes(prev =>
-      prev.includes(value)
-        ? prev.filter(item => item !== value)
-        : [...prev, value]
-    );
+    setLocalType(value);
   };
 
   const handleLocationChange = event => {
@@ -54,7 +50,7 @@ const CatalogFilter = () => {
   const handleSearch = () => {
     dispatch(resetCurrentPage());
     dispatch(setEquipment(localEquipment));
-    dispatch(setType(localTypes));
+    dispatch(setType(localType));
     dispatch(setLocation(localLocation));
   };
 
@@ -119,7 +115,7 @@ const CatalogFilter = () => {
               <div
                 key={option.key}
                 className={`${css.typeItem} ${
-                  localTypes.includes(option.key) ? css.selected : ''
+                  localType === option.key ? css.selected : ''
                 }`}
                 onClick={() => handleTypeClick(option.key)}
               >

@@ -1,7 +1,7 @@
 import css from './CamperCard.module.css';
 import { trimDescription } from '../../utils/stringUtils';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFavorites, toggleFavorite } from '../../redux/campersSlice';
+import { toggleFavorite, selectFavorites } from '../../redux/favoritesSlice';
 import { Link } from 'react-router-dom';
 import RatingLocationInfo from '../RatingLocationInfo/RatingLocationInfo';
 import CamperEquipment from '../CamperEquipment/CamperEquipment';

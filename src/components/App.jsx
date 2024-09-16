@@ -2,12 +2,12 @@ import css from './App.module.css';
 import { lazy, Suspense, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navigation from './Navigation/Navigation.jsx';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectError, selectIsLoading } from '../redux/campersSlice';
+import { useDispatch } from 'react-redux';
 import { getCampers } from '../redux/camperOps';
 import CamperFeatures from './CamperFeatures/CamperFeatures.jsx';
 import CamperReviews from './CamperReviews/CamperReviews.jsx';
 import { Toaster } from 'react-hot-toast';
+import Loader from './Loader/Loader.jsx';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage.jsx'));
 const CatalogPage = lazy(() => import('../pages/CatalogPage/CatalogPage.jsx'));
@@ -20,8 +20,6 @@ const NotFoundPage = lazy(() =>
 
 function App() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(getCampers());
@@ -31,7 +29,7 @@ function App() {
     <div className={css.container}>
       <Toaster position="top-right" reverseOrder={false} />
       <Navigation />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />

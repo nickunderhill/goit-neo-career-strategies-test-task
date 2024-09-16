@@ -12,7 +12,6 @@ const BookingForm = () => {
       comment: '',
     },
     onSubmit: (values, { resetForm }) => {
-      console.log('Form submitted:', values);
       toast.success('Booking request sent successfully!');
       resetForm();
     },

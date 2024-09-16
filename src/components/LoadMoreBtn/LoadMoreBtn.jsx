@@ -6,7 +6,6 @@ const LoadMoreBtn = () => {
   const dispatch = useDispatch();
 
   const handleLoadMore = () => {
-    console.log('Load More clicked'); // Debug
     dispatch(incrementCurrentPage());
   };
 
